@@ -28,8 +28,6 @@ Vue.use(ElementUI, {locale:lang});
 locale.use(lang)
 Vue.prototype.axios = axios;
 
-//存放购物车数据的全局变量，以保证在反复跳转后，订单信息不会丢失
-Vue.prototype.$cart = [];
 
 
 new Vue({

@@ -5,10 +5,10 @@
                 <div class="left-elements">
                     <h1 style="text-align: left;margin-bottom: 10px;">下单平台</h1>
                 </div>
-                <div class="right-elements">
+                <div class="right-elements" style="margin-right: 20px;">
                     <el-tooltip effect="dark" content="我的购物车" placement="bottom">
                         <router-link to="/carts">
-                            <i class="el-icon-shopping-cart-2" style="color: #F2F8FE;"></i>
+                            <i class="el-icon-shopping-cart-2" style="color: #F2F8FE; font-size: 24px;"></i>
                         </router-link>
                     </el-tooltip>
                 </div>
@@ -20,22 +20,20 @@
                         <el-submenu index="1">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
-                                <span>库存</span>
+                                <span>五金FERRETERIA</span>
                             </template>
-                            <template slot="title"></template>
                             <el-menu-item index="1-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySummary' }" class="custom-link"
-                                        active-class="active-link">
-                                        库存概要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <router-link :to="{ name: 'InventorySummary' }" class="custom-link" active-class="active-link">
+                                        	四寸合页BISAGRA 4''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="1-1">
                                 <i class="el-icon-menu"></i>
                                 <router-link :to="{ name: 'Inventory' }" class="custom-link"
-                                    active-class="active-link">按ID仓库排序</router-link>
+                                    active-class="active-link">卡扣SUJETADOR</router-link>
                                 <!--span slot="title">
                                     <router-link :to="{ name: 'Inventory', params: { pr1: 114514, pr2: 'zhendema' } }">按ID仓库排序</router-link>
                                 </span-->
@@ -43,38 +41,102 @@
                             <el-menu-item index="1-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySCZ' }" class="custom-link"
-                                        active-class="active-link">Santa
-                                        Cruz库存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
+                                    <router-link :to="{ name: 'InventorySCZ' }" class="custom-link" active-class="active-link">
+                                        螺丝钉TORNILLO&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="1-4">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link"
-                                        active-class="active-link">La
-                                        Paz库存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
-                                </span>
-                            </el-menu-item>
-                            <el-menu-item index="1-5">
-                                <i class="el-icon-menu"></i>
-                                <span slot="title">
-                                    <router-link :to="{ name: 'InventoryCBB' }" class="custom-link"
-                                        active-class="active-link">Cochabamba库存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        硅胶SILICONA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </router-link>
                                 </span>
                             </el-menu-item>
                         </el-submenu>
-                        <el-menu-item index="3">
-                            <i class="el-icon-menu"></i>
-                            <span slot="title">
-                                <router-link :to="{ name: 'Debt' }" class="custom-link"
-                                    active-class="active-link">欠款数据&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
-                            </span>
-                        </el-menu-item>
+                        <el-submenu index="2">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>龙骨PERFIL</span>
+                            </template>
+                            <el-menu-item index="2-1">
+                                <i class="el-icon-menu"></i>
+                                <router-link :to="{ name: 'Inventory' }" class="custom-link"
+                                    active-class="active-link">欧米伽型OMEGA</router-link>
+                                <!--span slot="title">
+                                    <router-link :to="{ name: 'Inventory', params: { pr1: 114514, pr2: 'zhendema' } }">按ID仓库排序</router-link>
+                                </span-->
+                            </el-menu-item>
+                            <el-menu-item index="2-2">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventorySummary' }" class="custom-link" active-class="active-link">
+                                        直角型ANGULO&nbsp;&nbsp;&nbsp;
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-3">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventorySCZ' }" class="custom-link" active-class="active-link">
+                                        立柱型MONTANTE&nbsp;
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-4" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        横向剖面型1.2<br>PERFILERIA ACUSTICA<br>TRANSVERSAL1.2
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-5" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        横向剖面型0.6<br>PERFILERIA ACUSTICA<br>TRANSVERSAL0.6
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-6" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        围栏剖面型<br>PERFILERIA ACUSTICA<br>PERIMETRAL
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-6" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        中间剖面型<br>CENTRAL ACOUSTIC<br>PROFILERY
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-7">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        分层型SOLERA&nbsp;&nbsp;&nbsp;
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="2-9">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                        Z型Buña Z&nbsp;&nbsp;&nbsp;
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
                         <el-submenu index="4">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
-                                <span>销售</span>
+                                <span>屋檐板CORNISA</span>
                             </template>
                             <template slot="title"></template>
                             <el-menu-item index="4-1">
@@ -144,7 +206,7 @@ export default {
     color: #333;
     text-align: center;
     line-height: 30px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-between; /* 左右分布 */
     align-items: center; /* 垂直居中 */
@@ -191,9 +253,42 @@ body>.el-container {
     line-height: 320px;
 }
 
+/*文字过长时自动换行，或者允许换行符<br>生效*/
+.el-submenu__title {
+  display: flex;
+  align-items: center;
+}
+.el-submenu__title span{
+  white-space: normal;
+  word-break: break-all;
+  line-height: 20px;
+  flex: 1;
+  padding-right: 20px;
+}
+ 
+.el-menu-item {
+  display: flex;
+  align-items: center;
+  padding-right: 20px!important;
+}
+.el-menu-item span {
+  white-space: normal;
+  word-break: break-all;
+  line-height: 20px;
+  flex: 1;
+}
 .custom-link {
     color: white; /* 修改链接颜色 */
     text-decoration: none; /* 去掉下划线 */
+    line-height: 1; /* 根据需要调整行高 */
+}
+
+/*增加间距*/
+/* 使用深度选择器覆盖 Element UI 默认样式 */
+.custom-spacing {
+    margin-top: 10px;
+    margin-bottom: 15px; /* 调整为你需要的间距 */
+    font-size:11px!important;
 }
 
 .active-link {
