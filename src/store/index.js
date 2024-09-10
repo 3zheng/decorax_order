@@ -9,10 +9,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     cart:[],
+    username:"user1",
   },
   getters: {
     getCart(state){
       return state.cart;
+    },
+    getUserName(state){
+      return state.username;
     },
   },
   //同步方法
@@ -20,11 +24,17 @@ export default new Vuex.Store({
     updateCart(state, cart){
       state.cart = cart;
     },
+    updateUserName(state, username){
+      state.username = username;
+    },
   },
   //异步方法
   actions: {
     asyncUpdateCart(context, cart){
       context.commit('updateCart',cart);
+    },
+    asyncUpdateCart(context, username){
+      context.commit('updateUserName',username);
     },
   },
   modules: {

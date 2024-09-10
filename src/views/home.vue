@@ -6,11 +6,15 @@
                     <h1 style="text-align: left;margin-bottom: 10px;">下单平台</h1>
                 </div>
                 <div class="right-elements" style="margin-right: 20px;">
-                    <el-tooltip effect="dark" content="我的购物车" placement="bottom">
+                    <router-link :to="{ name: 'Bisagra4' }" class="user-name" >
+                        {{$store.getters.getUserName}}的订单
+                    </router-link>
+                    <el-button type="warning" icon="el-icon-info" @click="onCart">去购物车结算</el-button>
+                    <!--el-tooltip effect="dark" content="我的购物车" placement="bottom">
                         <router-link to="/carts">
                             <i class="el-icon-shopping-cart-2" style="color: #F2F8FE; font-size: 24px;"></i>
                         </router-link>
-                    </el-tooltip>
+                    </el-tooltip-->
                 </div>
             </el-header>
             <el-container>
@@ -25,14 +29,14 @@
                             <el-menu-item index="1-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySummary' }" class="custom-link" active-class="active-link">
-                                        	四寸合页BISAGRA 4''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <router-link :to="{ name: 'Bisagra4' }" class="custom-link" active-class="active-link">
+                                        四寸合页BISAGRA 4''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="1-1">
                                 <i class="el-icon-menu"></i>
-                                <router-link :to="{ name: 'Inventory' }" class="custom-link"
+                                <router-link :to="{ name: 'Sujetador' }" class="custom-link"
                                     active-class="active-link">卡扣SUJETADOR</router-link>
                                 <!--span slot="title">
                                     <router-link :to="{ name: 'Inventory', params: { pr1: 114514, pr2: 'zhendema' } }">按ID仓库排序</router-link>
@@ -41,16 +45,16 @@
                             <el-menu-item index="1-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySCZ' }" class="custom-link" active-class="active-link">
-                                        螺丝钉TORNILLO&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <router-link :to="{ name: 'Tornillo' }" class="custom-link" active-class="active-link">
+                                        螺丝钉TORNILLO&nbsp;&nbsp;
                                     </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="1-4">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
-                                        硅胶SILICONA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <router-link :to="{ name: 'Silicona' }" class="custom-link" active-class="active-link">
+                                        硅胶SILICONA&nbsp;&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
                             </el-menu-item>
@@ -62,7 +66,7 @@
                             </template>
                             <el-menu-item index="2-1">
                                 <i class="el-icon-menu"></i>
-                                <router-link :to="{ name: 'Inventory' }" class="custom-link"
+                                <router-link :to="{ name: 'Omega' }" class="custom-link"
                                     active-class="active-link">欧米伽型OMEGA</router-link>
                                 <!--span slot="title">
                                     <router-link :to="{ name: 'Inventory', params: { pr1: 114514, pr2: 'zhendema' } }">按ID仓库排序</router-link>
@@ -133,43 +137,206 @@
                                 </span>
                             </el-menu-item>
                         </el-submenu>
-                        <el-submenu index="4">
+                        <el-submenu index="3">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>地板PISO</span>
+                            </template>
+                            <template slot="title"></template>
+                            <el-menu-item index="3-1">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        悬浮复合地板PISO<br>FLOTANTE SPC
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="3-2">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        地板贴<br>PISO ADHESIVO
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="3-2">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        地毯贴ALFOMBRA<br>AUTOADHESIVA
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="5">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>可拆卸扣板<br>CIELO MODULAR</span>
+                            </template>
+                            <template slot="title"></template>
+                            <el-menu-item index="5-1">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        石膏板GYPSUM 595
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="5-2">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        PVC板<br>PLACA DE PVC
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="6">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>扣板CIELO<br>FALSO PVC</span>
+                            </template>
+                            <template slot="title"></template>
+                            <el-menu-item index="6-1" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        25cm扣板<br>CIELO FALSO<br>PVC ANCHO 25CM
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="6-2" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        30cm扣板<br>CIELO FALSO<br>PVC ANCHO 30CM
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="7">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
                                 <span>屋檐板CORNISA</span>
                             </template>
                             <template slot="title"></template>
-                            <el-menu-item index="4-1">
+                            <el-menu-item index="7-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link"
-                                        active-class="active-link">销售员日销售数据</router-link>
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        CORNISA PVC<br>MODELO T
+                                    </router-link>
                                 </span>
                             </el-menu-item>
-                            <el-menu-item index="4-2">
+                            <el-menu-item index="7-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link"
-                                        active-class="active-link">销售员月销售数据</router-link>
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        CORNISA PVC<br>MODELO U
+                                    </router-link>
                                 </span>
                             </el-menu-item>
-                            <el-menu-item index="4-3">
+                            <el-menu-item index="7-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link"
-                                        active-class="active-link">产品近30天销量</router-link>
+                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                        CORNISA PVC<br>MODELO F
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="7-4">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                        CORNISA PVC<br>MODELO UA
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="7-5">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                        CORNISA PVC<br>MODELO H
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="8">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>干建筑材料DRYWALL</span>
+                            </template>
+                            <template slot="title"></template>
+                            <el-menu-item index="8-1">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        石膏板<br>PLACA DE YESO
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="8-2">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        泥灰MASILLA
+                                    </router-link>
                                 </span>
                             </el-menu-item>
                         </el-submenu>
                         <el-submenu index="9">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
-                                <span>重要客户</span>
+                                <span>3D</span>
                             </template>
                             <template slot="title"></template>
-                            <el-menu-item index="9-1">重要客户</el-menu-item>
-                            <el-menu-item index="9-2">新增的重要客户</el-menu-item>
-                            <el-menu-item index="9-3">丢失的重要客户</el-menu-item>
+                            <el-menu-item index="9-1">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        墙贴<br>AUTO ADHESIVA
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="9-2" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        大理石墙贴<br>LAMINA MARMOLADA<br>AUTO ADHESIVA
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="10">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>墙板<br>REVESTIMIENTO</span>
+                            </template>
+                            <template slot="title"></template>
+                            <el-menu-item index="9-1" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                        20cm内墙板<br>REVESTIMIENTO<br>PVC ANCHO 20CM
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="9-2" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        16cm内墙板<br>REVESTIMIENTO<br>PVC ANCHO 16CM
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="9-3">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                        蜂窝铝板<br>Panel De Aluminio
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
                         </el-submenu>
                         <el-menu-item index="99" disabled>
                             <i class="el-icon-document"></i>
@@ -296,4 +463,11 @@ body>.el-container {
     text-decoration: none; /* 去掉下划线 */
 }
 
+.user-name{
+    text-decoration: none; /* 去掉下划线 */
+    color: #303133; /* 修改链接颜色 */
+    margin-top: 5px;
+    margin-right: 40px;
+    font-size:20px!important;
+}
 </style>

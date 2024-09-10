@@ -10,6 +10,7 @@ import enLocale from 'element-ui/lib/locale/lang/en'
 import esLocale from 'element-ui/lib/locale/lang/es' 
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 import locale from 'element-ui/lib/locale'
+import Vuex from 'vuex'
 
 //选择系统语言
 const browserLanguage = navigator.language || navigator.userLanguage
@@ -27,6 +28,7 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, {locale:lang});
 locale.use(lang)
 Vue.prototype.axios = axios;
+Vue.use(Vuex)
 
 
 
