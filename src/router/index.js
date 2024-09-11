@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import home from '@/views/home.vue'
 import orders from '@/views/MyOrders.vue'
+import cart from '@/views/Cart.vue'
 import Bisagra4 from '@/views/product/FERRETERIA/Bisagra4.vue'
 import Sujetador from '@/views/product/FERRETERIA/Sujetador.vue'
 import Tornillo from '@/views/product/FERRETERIA/Tornillo.vue'
@@ -16,6 +17,11 @@ const routes = [
     path: '/orders',
     name: 'orders',
     component: orders,
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: cart,
   },
   {
     path: '/',

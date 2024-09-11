@@ -6,10 +6,8 @@
                     <h1 style="text-align: left;margin-bottom: 10px;">下单平台</h1>
                 </div>
                 <div class="right-elements" style="margin-right: 20px;">
-                    <router-link :to="{ name: 'Bisagra4' }" class="user-name" >
-                        {{$store.getters.getUserName}}的订单
-                    </router-link>
-                    <el-button type="warning" icon="el-icon-info" @click="onCart">去购物车结算</el-button>
+                    <el-button type="success" icon="el-icon-s-order" @click="onMyOrders">{{$store.getters.getUserName}}的订单</el-button>
+                    <el-button type="warning" icon="el-icon-shopping-cart-2" @click="onCart">去购物车结算</el-button>
                     <!--el-tooltip effect="dark" content="我的购物车" placement="bottom">
                         <router-link to="/carts">
                             <i class="el-icon-shopping-cart-2" style="color: #F2F8FE; font-size: 24px;"></i>
@@ -360,114 +358,20 @@
 // @ is an alias to /src
 export default {
     name: "home",
+    methods:{
+        onMyOrders(){
+            alert('onMyOrders')
+            this.$router.push({ name: 'orders' })
+        },
+
+        onCart(){
+            alert('onCart')
+            this.$router.push({ name: 'cart' })
+        },
+    },
 };
 </script>
 
 <style>
-.el-breadcrumb {
-    padding: 15px;
-}
 
-.el-header {
-    background-color: #b3c0d1;
-    color: #333;
-    text-align: center;
-    line-height: 30px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between; /* 左右分布 */
-    align-items: center; /* 垂直居中 */
-}
-
-.left-elements,
-.right-elements {
-  display: flex;
-}
-
-.el-footer {
-    background-color: #b3c0d1;
-    color: #333;
-    text-align: center;
-    line-height: 10px;
-}
-
-.el-aside {
-    background-color: #545c64;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-}
-
-.el-main {
-    background-color: #e9eef3;
-    color: #333;
-    /*
-    text-align: center;
-    line-height: 160px;
-    */
-}
-
-body>.el-container {
-    margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-}
-
-/*文字过长时自动换行，或者允许换行符<br>生效*/
-.el-submenu__title {
-  display: flex;
-  align-items: center;
-}
-.el-submenu__title span{
-  white-space: normal;
-  word-break: break-all;
-  line-height: 20px;
-  flex: 1;
-  padding-right: 20px;
-}
- 
-.el-menu-item {
-  display: flex;
-  align-items: center;
-  padding-right: 20px!important;
-}
-.el-menu-item span {
-  white-space: normal;
-  word-break: break-all;
-  line-height: 20px;
-  flex: 1;
-}
-.custom-link {
-    color: white; /* 修改链接颜色 */
-    text-decoration: none; /* 去掉下划线 */
-    line-height: 1; /* 根据需要调整行高 */
-}
-
-/*增加间距*/
-/* 使用深度选择器覆盖 Element UI 默认样式 */
-.custom-spacing {
-    margin-top: 10px;
-    margin-bottom: 15px; /* 调整为你需要的间距 */
-    font-size:11px!important;
-}
-
-.active-link {
-    color: rgb(25, 244, 36); /* 修改链接颜色 */
-    text-decoration: none; /* 去掉下划线 */
-}
-
-.user-name{
-    text-decoration: none; /* 去掉下划线 */
-    color: #303133; /* 修改链接颜色 */
-    margin-top: 5px;
-    margin-right: 40px;
-    font-size:20px!important;
-}
 </style>

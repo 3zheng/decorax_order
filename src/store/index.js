@@ -8,8 +8,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cart:[],
+    cart: new Map(),
     username:"user1",
+    address:"我是收货地址",
+    productDict: new Map([  //产品的信息表
+      ['4-AB',"BISAGRA 4''"],
+      ['4-AC',"BISAGRA 4''"],
+      ['4-SN',"BISAGRA 4''"],
+    ]),
   },
   getters: {
     getCart(state){
@@ -17,6 +23,12 @@ export default new Vuex.Store({
     },
     getUserName(state){
       return state.username;
+    },
+    getAddress(state){
+      return state.address;
+    },
+    getProductDict(state){
+      return state.productDict;
     },
   },
   //同步方法
@@ -27,16 +39,28 @@ export default new Vuex.Store({
     updateUserName(state, username){
       state.username = username;
     },
+    updateAddress(state, address){
+      state.address = address;
+    },
+    updateProductDict(state, productDict){
+      state.productDict = productDict;
+    },
   },
   //异步方法
   actions: {
-    asyncUpdateCart(context, cart){
+    asyncCart(context, cart){
       context.commit('updateCart',cart);
     },
-    asyncUpdateCart(context, username){
+    asyncUserName(context, username){
       context.commit('updateUserName',username);
+    },
+    asyncAddress(context, address){
+      context.commit('updateAddress',address);
+    },
+    asyncProductDict(context, productDict){
+      context.commit('updateProductDict',productDict);
     },
   },
   modules: {
-  }
+  },
 })
