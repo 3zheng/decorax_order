@@ -3,7 +3,7 @@
         <el-container>
             <el-header>
                 <div>
-                    <router-link :to="{ name: 'Bisagra4' }" class="home-link">返回首页</router-link>
+                    <router-link to="/" class="home-link">返回首页</router-link>
                 </div>
                 <div>
                     <el-button type="primary" icon="el-icon-edit">修改默认收货地址</el-button>
@@ -23,26 +23,35 @@
                         <template slot="header">订购数量</template>
                     </el-table-column>
                     <el-table-column label="操作" width="150">
-                        <el-button type="primary" icon="el-icon-edit" circle></el-button>
-                        <el-button type="danger" icon="el-icon-delete" circle></el-button>
+                        <template slot-scope="scope">
+                            <el-button type="primary" icon="el-icon-edit" circle @click="onModifyOrder(scope.row)" ></el-button>
+                            <el-button type="danger" icon="el-icon-delete" circle></el-button>
+                        </template>
                     </el-table-column>
                 </el-table>
                 <!--分页-->
                 <el-form :inline="true">
                     <el-row style="margin-top: 10px">
                         <el-col :span="8" style="text-align: left; margin-top: 0px">
-                            <el-button type="primary" icon="el-icon-back" @click="onPageUp">Página Arriba</el-button>
-                            <el-button type="primary" icon="el-icon-right" @click="onPageDown">Página Abajo</el-button>
-                        </el-col>
-                        <el-col :span="10" style="text-align: right; margin-top: 0px">
                             <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                                 :current-page="currentPage" :page-sizes="[5, 10, 20, 50]" :page-size="5"
                                 layout="total, sizes, prev, pager, next, jumper" :total="searchTotal">
                             </el-pagination>
                         </el-col>
+                        <el-col :span="10" style="text-align: right; margin-top: 0px">
+                            <el-button type="primary" icon="el-icon-back" @click="onPageUp">Página Arriba</el-button>
+                            <el-button type="primary" icon="el-icon-right" @click="onPageDown">Página Abajo</el-button>
+                        </el-col>
                         <el-col :span="2"> </el-col>
                     </el-row>
                 </el-form>
+                <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+                    <span>这是一段信息</span>
+                    <span slot="footer" class="dialog-footer">
+                        <el-button @click="dialogVisible = false">取 消</el-button>
+                        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+                    </span>
+                </el-dialog>
             </el-main>
             <el-footer style="line-height: 30px; height: 30px">Footer</el-footer>
         </el-container>
@@ -58,6 +67,8 @@ export default {
         return {
             //pr1: 0,
             //pr2: '',
+            dialogVisible: false,   //是否显示对话框
+
             isGetall: false,   //是否已经获取了全部数据，避免全部获取的数据先到，部分获取的数据覆盖了全部获取
             searchData: [],
             searchTotal: 0,
@@ -77,7 +88,6 @@ export default {
 
     methods: {
         getAllData() {
-            
             let cart = this.$store.getters.getCart;
             let username = this.$store.getters.getUserName;
             let dict = this.$store.getters.getProductDict;
@@ -99,6 +109,7 @@ export default {
             }
             this.searchData = this.totalData;
             this.searchTotal = this.searchData.length;
+            this.changeShowPage();
         },
         changeShowPage() {
             var start = (this.currentPage - 1) * this.pageSize;
@@ -117,23 +128,29 @@ export default {
             this.currentPage = val;
             this.changeShowPage()
         },
-        changeShowPage(){
-            var start = (this.currentPage-1)*this.pageSize;
-            var end = (this.currentPage-1)*this.pageSize + this.pageSize;
-            var str = "start="+ start+ " end="+ end;
+        changeShowPage() {
+            var start = (this.currentPage - 1) * this.pageSize;
+            var end = (this.currentPage - 1) * this.pageSize + this.pageSize;
+            var str = "start=" + start + " end=" + end;
             console.log(str);
             this.showData = this.searchData.slice(start, end);
         },
-        onPageUp(){
-            if (this.currentPage > 1){
-                this.handleCurrentChange(this.currentPage-1);
-            }           
-        },
-        onPageDown(){
-            if (this.currentPage * this.pageSize < this.searchTotal){
-                this.handleCurrentChange(this.currentPage+1)
+        onPageUp() {
+            if (this.currentPage > 1) {
+                this.handleCurrentChange(this.currentPage - 1);
             }
         },
+        onPageDown() {
+            if (this.currentPage * this.pageSize < this.searchTotal) {
+                this.handleCurrentChange(this.currentPage + 1)
+            }
+        },
+        onModifyOrder(row){
+            alert(`${row.Username},${row.ProductID},${row.SubCatecory},${row.Address},${row.BuyNum},`);
+            console.log(row)
+            this.dialogVisible = true;
+        }
+
     },
 };
 </script>

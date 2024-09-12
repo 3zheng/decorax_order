@@ -64,7 +64,7 @@ export default {
 
 <style scoped>
 .image {
-    width: 100%;
+    width: 100%; /*100%是拉伸到100%*/
     height: 200px; /* 你可以根据需要调整高度 */
     display: block;
 }
