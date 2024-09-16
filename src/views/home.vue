@@ -73,7 +73,7 @@
                             <el-menu-item index="2-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'Angulo' }" class="custom-link" active-class="active-link">
                                         直角型ANGULO&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
@@ -81,7 +81,7 @@
                             <el-menu-item index="2-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySCZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'Montante' }" class="custom-link" active-class="active-link">
                                         立柱型MONTANTE&nbsp;
                                     </router-link>
                                 </span>
@@ -89,7 +89,7 @@
                             <el-menu-item index="2-4" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PA_Transversal12' }" class="custom-link" active-class="active-link">
                                         横向剖面型1.2<br>PERFILERIA ACUSTICA<br>TRANSVERSAL1.2
                                     </router-link>
                                 </span>
@@ -97,7 +97,7 @@
                             <el-menu-item index="2-5" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PA_Transversal06' }" class="custom-link" active-class="active-link">
                                         横向剖面型0.6<br>PERFILERIA ACUSTICA<br>TRANSVERSAL0.6
                                     </router-link>
                                 </span>
@@ -105,7 +105,7 @@
                             <el-menu-item index="2-6" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PA_Perimetral' }" class="custom-link" active-class="active-link">
                                         围栏剖面型<br>PERFILERIA ACUSTICA<br>PERIMETRAL
                                     </router-link>
                                 </span>
@@ -113,7 +113,7 @@
                             <el-menu-item index="2-6" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CA_Profilery' }" class="custom-link" active-class="active-link">
                                         中间剖面型<br>CENTRAL ACOUSTIC<br>PROFILERY
                                     </router-link>
                                 </span>
@@ -121,7 +121,7 @@
                             <el-menu-item index="2-7">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'Solera' }" class="custom-link" active-class="active-link">
                                         分层型SOLERA&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
@@ -129,7 +129,7 @@
                             <el-menu-item index="2-9">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventoryLPZ' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'Z_Buna' }" class="custom-link" active-class="active-link">
                                         Z型Buña Z&nbsp;&nbsp;&nbsp;
                                     </router-link>
                                 </span>
@@ -144,7 +144,7 @@
                             <el-menu-item index="3-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PF_SPC' }" class="custom-link" active-class="active-link">
                                         悬浮复合地板PISO<br>FLOTANTE SPC
                                     </router-link>
                                 </span>
@@ -152,7 +152,7 @@
                             <el-menu-item index="3-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'P_Adhesivo' }" class="custom-link" active-class="active-link">
                                         地板贴<br>PISO ADHESIVO
                                     </router-link>
                                 </span>
@@ -160,7 +160,7 @@
                             <el-menu-item index="3-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'A_Autoadhesiva' }" class="custom-link" active-class="active-link">
                                         地毯贴ALFOMBRA<br>AUTOADHESIVA
                                     </router-link>
                                 </span>
@@ -175,7 +175,7 @@
                             <el-menu-item index="5-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'Gypsum595' }" class="custom-link" active-class="active-link">
                                         石膏板GYPSUM 595
                                     </router-link>
                                 </span>
@@ -183,7 +183,7 @@
                             <el-menu-item index="5-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PD_PVC' }" class="custom-link" active-class="active-link">
                                         PVC板<br>PLACA DE PVC
                                     </router-link>
                                 </span>
@@ -198,15 +198,23 @@
                             <el-menu-item index="6-1" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
-                                        25cm扣板<br>CIELO FALSO<br>PVC ANCHO 25CM
+                                    <router-link :to="{ name: 'CFP_Ancho20cm' }" class="custom-link" active-class="active-link">
+                                        20cm扣板<br>CIELO FALSO<br>PVC ANCHO 20CM
                                     </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="6-2" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CFP_Ancho25cm' }" class="custom-link" active-class="active-link">
+                                        25cm扣板<br>CIELO FALSO<br>PVC ANCHO 25CM
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="6-3" class="custom-spacing">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'CFP_Ancho30cm' }" class="custom-link" active-class="active-link">
                                         30cm扣板<br>CIELO FALSO<br>PVC ANCHO 30CM
                                     </router-link>
                                 </span>
@@ -221,7 +229,7 @@
                             <el-menu-item index="7-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CPM_T' }" class="custom-link" active-class="active-link">
                                         CORNISA PVC<br>MODELO T
                                     </router-link>
                                 </span>
@@ -229,7 +237,7 @@
                             <el-menu-item index="7-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CPM_U' }" class="custom-link" active-class="active-link">
                                         CORNISA PVC<br>MODELO U
                                     </router-link>
                                 </span>
@@ -237,7 +245,7 @@
                             <el-menu-item index="7-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CPM_F' }" class="custom-link" active-class="active-link">
                                         CORNISA PVC<br>MODELO F
                                     </router-link>
                                 </span>
@@ -245,7 +253,7 @@
                             <el-menu-item index="7-4">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CPM_UA' }" class="custom-link" active-class="active-link">
                                         CORNISA PVC<br>MODELO UA
                                     </router-link>
                                 </span>
@@ -253,7 +261,7 @@
                             <el-menu-item index="7-5">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'InventorySales' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'CPM_H' }" class="custom-link" active-class="active-link">
                                         CORNISA PVC<br>MODELO H
                                     </router-link>
                                 </span>
@@ -268,15 +276,23 @@
                             <el-menu-item index="8-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
-                                        石膏板<br>PLACA DE YESO
+                                    <router-link :to="{ name: 'CD_Drywall' }" class="custom-link" active-class="active-link">
+                                        石膏板胶带<br>CINTA DE DRYWALL
                                     </router-link>
                                 </span>
                             </el-menu-item>
                             <el-menu-item index="8-2">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PE_Yeso' }" class="custom-link" active-class="active-link">
+                                        石膏板<br>PLACA DE YESO
+                                    </router-link>
+                                </span>
+                            </el-menu-item>
+                            <el-menu-item index="8-3">
+                                <i class="el-icon-menu"></i>
+                                <span slot="title">
+                                    <router-link :to="{ name: 'Masilla' }" class="custom-link" active-class="active-link">
                                         泥灰MASILLA
                                     </router-link>
                                 </span>
@@ -291,7 +307,7 @@
                             <el-menu-item index="9-1">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'A_Adhesiva' }" class="custom-link" active-class="active-link">
                                         墙贴<br>AUTO ADHESIVA
                                     </router-link>
                                 </span>
@@ -299,7 +315,7 @@
                             <el-menu-item index="9-2" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'LMA_Adhesiva' }" class="custom-link" active-class="active-link">
                                         大理石墙贴<br>LAMINA MARMOLADA<br>AUTO ADHESIVA
                                     </router-link>
                                 </span>
@@ -314,7 +330,7 @@
                             <el-menu-item index="9-1" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesRecord' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'RP_Ancho20cm' }" class="custom-link" active-class="active-link">
                                         20cm内墙板<br>REVESTIMIENTO<br>PVC ANCHO 20CM
                                     </router-link>
                                 </span>
@@ -322,7 +338,7 @@
                             <el-menu-item index="9-2" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'RP_Ancho16cm' }" class="custom-link" active-class="active-link">
                                         16cm内墙板<br>REVESTIMIENTO<br>PVC ANCHO 16CM
                                     </router-link>
                                 </span>
@@ -330,7 +346,7 @@
                             <el-menu-item index="9-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'SalesSummary' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'PD_Aluminio' }" class="custom-link" active-class="active-link">
                                         蜂窝铝板<br>Panel De Aluminio
                                     </router-link>
                                 </span>

@@ -8,15 +8,23 @@
 import ProductList from '@/components/ProductList.vue';
 
 export default {
+    name: 'Tornillo',
     components: {
         ProductList
     },
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'TORNILLO A', image: 'images/FERRETERIA/4-AB.png' },
+                { name: 'TORNILLO N', image: 'images/FERRETERIA/4-AC.png' },
+                { name: 'TORNILLO T2', image: 'images/TBD1.jpg' },
+                { name: 'TORNILLO T2-1', image: 'images/TBD1.jpg' },
+                { name: 'TORNILLO A-1000', image: 'images/TBD1.jpg' },
+                { name: 'T2-T', image: 'images/TBD1.jpg' },
+                { name: 'T2-TB', image: 'images/TBD1.jpg' },
+                { name: 'T2-TB-L', image: 'images/TBD1.jpg' },
+                { name: 'T2-TC-L', image: 'images/TBD1.jpg' },
+                { name: 'T2-T-L', image: 'images/TBD1.jpg' },              
                 // 更多商品数据
             ]
         };

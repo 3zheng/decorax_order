@@ -8,15 +8,17 @@
 import ProductList from '@/components/ProductList.vue';
 
 export default {
+    name: 'Sujetador',
     components: {
         ProductList
     },
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'CLIC-1', image: 'images/FERRETERIA/CLIC-1.jpg' },
+                { name: 'SUJ-1', image: 'images/FERRETERIA/SUJETADORES.jpg' },
+                { name: 'SUJ-2', image: 'images/FERRETERIA/SUJETADORES.jpg' },
+                { name: 'SUJ-3', image: 'images/FERRETERIA/SUJETADORES.jpg' },
                 // 更多商品数据
             ]
         };

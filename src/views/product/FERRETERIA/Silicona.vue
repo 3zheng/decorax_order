@@ -8,15 +8,17 @@
 import ProductList from '@/components/ProductList.vue';
 
 export default {
+    name: 'Silicona',
     components: {
         ProductList
     },
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'High Grab-118', image: 'images/TBD1.jpg' },
+                { name: 'High Grab-116', image: 'images/TBD1.jpg' },
+                { name: 'HT-N', image: 'images/TBD1.jpg' },
+                { name: 'HT-C', image: 'images/TBD1.jpg' },
                 // 更多商品数据
             ]
         };

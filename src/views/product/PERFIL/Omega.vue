@@ -14,9 +14,7 @@ export default {
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'OMEGA-3 (0,45)', image: 'images/PERFIL/OMEGA.png' },
                 // 更多商品数据
             ]
         };
