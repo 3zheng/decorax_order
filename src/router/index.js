@@ -43,10 +43,33 @@ import CD_Drywall from '@/views/product/DRYWALL/CD_Drywall.vue'
 //3D
 import A_Adhesiva from '@/views/product/The-3D/A_Adhesiva.vue'
 import LMA_Adhesiva from '@/views/product/The-3D/LMA_Adhesiva.vue'
+import MA_Adhesiva from '@/views/product/The-3D/MA_Adhesiva.vue'
+import AE_Rollo from '@/views/product/The-3D/AE_Rollo.vue'
+import Lamina_3D from '@/views/product/The-3D/Lamina_3D.vue'
+import P_Adhesiva from '@/views/product/The-3D/P_Adhesiva.vue'
+import VAP_Vidrio from '@/views/product/The-3D/VAP_Vidrio.vue'
+import ZA_Adhesiva from '@/views/product/The-3D/ZA_Adhesiva.vue'
 //REVESTIMIENTO
-import RP_Ancho20cm from '@/views/product/REVESTIMIENTO/RP_Ancho20cm.vue'
-import RP_Ancho16cm from '@/views/product/REVESTIMIENTO/RP_Ancho16cm.vue'
-import PD_Aluminio from '@/views/product/REVESTIMIENTO/PD_Aluminio.vue'
+import LT_Espejo_2440_1220_5mm from '@/views/product/REVESTIMIENTO/LT_Espejo_2440_1220_5mm.vue'
+import P_Solido_1220_2440_3mm from '@/views/product/REVESTIMIENTO/P_Solido_1220_2440_3mm.vue'
+import PD_Aluminio_1220_2800_7mm from '@/views/product/REVESTIMIENTO/PD_Aluminio_1220_2800_7mm.vue'
+import PD_Aluminio_1220_2900_7mm from '@/views/product/REVESTIMIENTO/PD_Aluminio_1220_2900_7mm.vue'
+import PDP_Marmolados_2440_1220_3mm from '@/views/product/REVESTIMIENTO/PDP_Marmolados_2440_1220_3mm.vue'
+import R_Ext_3850_350_16mm from '@/views/product/REVESTIMIENTO/R_Ext_3850_350_16mm.vue'
+import R_Ext_3850_380_16mm from '@/views/product/REVESTIMIENTO/R_Ext_3850_380_16mm.vue'
+import R_Ext_3850_390_16mm from '@/views/product/REVESTIMIENTO/R_Ext_3850_390_16mm.vue'
+import RI_PVC_400_9_2950mm from '@/views/product/REVESTIMIENTO/RI_PVC_400_9_2950mm.vue'
+import RI_PVC_600_8_2950mm from '@/views/product/REVESTIMIENTO/RI_PVC_600_8_2950mm.vue'
+import RocaPU_1200_600_30mm from '@/views/product/REVESTIMIENTO/RocaPU_1200_600_30mm.vue'
+import TDD_WPC from '@/views/product/REVESTIMIENTO/TDD_WPC.vue'
+import TDED_PVC_1220_2900_5mm from '@/views/product/REVESTIMIENTO/TDED_PVC_1220_2900_5mm.vue'
+import TDED_PVC_1220_2900_8mm from '@/views/product/REVESTIMIENTO/TDED_PVC_1220_2900_8mm.vue'
+import WPDP_Ripado_150_15_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_150_15_2900mm.vue'
+import WPDP_Ripado_160_16_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_160_16_2900mm.vue'
+import WPDP_Ripado_160_24_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_160_24_2900mm.vue'
+import WPDP_Ripado_200_16_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_200_16_2900mm.vue'
+import WPDP_Ripado_200_21_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_200_21_2900mm.vue'
+import WPDP_Ripado_200_24_2900mm from '@/views/product/REVESTIMIENTO/WPDP_Ripado_200_24_2900mm.vue'
 
 Vue.use(VueRouter)
 
@@ -266,25 +289,163 @@ const routes = [
         component:LMA_Adhesiva,
         props:true,
       },
+      {
+        path:'/product/MA_Adhesiva',
+        name:'MA_Adhesiva',
+        component:MA_Adhesiva,
+        props:true,
+      },
+      {
+        path:'/product/AE_Rollo',
+        name:'AE_Rollo',
+        component:AE_Rollo,
+        props:true,
+      },
+      {
+        path:'/product/Lamina_3D',
+        name:'Lamina_3D',
+        component:Lamina_3D,
+        props:true,
+      },
+      {
+        path:'/product/P_Adhesiva',
+        name:'P_Adhesiva',
+        component:P_Adhesiva,
+        props:true,
+      },
+      {
+        path:'/product/VAP_Vidrio',
+        name:'VAP_Vidrio',
+        component:VAP_Vidrio,
+        props:true,
+      },
+      {
+        path:'/product/ZA_Adhesiva',
+        name:'ZA_Adhesiva',
+        component:ZA_Adhesiva,
+        props:true,
+      },
       //REVESTIMIENTO
-      {
-        path:'/product/RP_Ancho20cm',
-        name:'RP_Ancho20cm',
-        component:RP_Ancho20cm,
-        props:true,
-      },
-      {
-        path:'/product/RP_Ancho16cm',
-        name:'RP_Ancho16cm',
-        component:RP_Ancho16cm,
-        props:true,
-      },
-      {
-        path:'/product/PD_Aluminio',
-        name:'PD_Aluminio',
-        component:PD_Aluminio,
-        props:true,
-      },
+{
+  path:'/product/LT_Espejo_2440_1220_5mm',
+  name:'LT_Espejo_2440_1220_5mm',
+  component:LT_Espejo_2440_1220_5mm,
+  props:true,
+},
+{
+  path:'/product/P_Solido_1220_2440_3mm',
+  name:'P_Solido_1220_2440_3mm',
+  component:P_Solido_1220_2440_3mm,
+  props:true,
+},
+{
+  path:'/product/PD_Aluminio_1220_2800_7mm',
+  name:'PD_Aluminio_1220_2800_7mm',
+  component:PD_Aluminio_1220_2800_7mm,
+  props:true,
+},
+{
+  path:'/product/PD_Aluminio_1220_2900_7mm',
+  name:'PD_Aluminio_1220_2900_7mm',
+  component:PD_Aluminio_1220_2900_7mm,
+  props:true,
+},
+{
+  path:'/product/PDP_Marmolados_2440_1220_3mm',
+  name:'PDP_Marmolados_2440_1220_3mm',
+  component:PDP_Marmolados_2440_1220_3mm,
+  props:true,
+},
+{
+  path:'/product/R_Ext_3850_350_16mm',
+  name:'R_Ext_3850_350_16mm',
+  component:R_Ext_3850_350_16mm,
+  props:true,
+},
+{
+  path:'/product/R_Ext_3850_380_16mm',
+  name:'R_Ext_3850_380_16mm',
+  component:R_Ext_3850_380_16mm,
+  props:true,
+},
+{
+  path:'/product/R_Ext_3850_390_16mm',
+  name:'R_Ext_3850_390_16mm',
+  component:R_Ext_3850_390_16mm,
+  props:true,
+},
+{
+  path:'/product/RI_PVC_400_9_2950mm',
+  name:'RI_PVC_400_9_2950mm',
+  component:RI_PVC_400_9_2950mm,
+  props:true,
+},
+{
+  path:'/product/RI_PVC_600_8_2950mm',
+  name:'RI_PVC_600_8_2950mm',
+  component:RI_PVC_600_8_2950mm,
+  props:true,
+},
+{
+  path:'/product/RocaPU_1200_600_30mm',
+  name:'RocaPU_1200_600_30mm',
+  component:RocaPU_1200_600_30mm,
+  props:true,
+},
+{
+  path:'/product/TDD_WPC',
+  name:'TDD_WPC',
+  component:TDD_WPC,
+  props:true,
+},
+{
+  path:'/product/TDED_PVC_1220_2900_5mm',
+  name:'TDED_PVC_1220_2900_5mm',
+  component:TDED_PVC_1220_2900_5mm,
+  props:true,
+},
+{
+  path:'/product/TDED_PVC_1220_2900_8mm',
+  name:'TDED_PVC_1220_2900_8mm',
+  component:TDED_PVC_1220_2900_8mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_150_15_2900mm',
+  name:'WPDP_Ripado_150_15_2900mm',
+  component:WPDP_Ripado_150_15_2900mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_160_16_2900mm',
+  name:'WPDP_Ripado_160_16_2900mm',
+  component:WPDP_Ripado_160_16_2900mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_160_24_2900mm',
+  name:'WPDP_Ripado_160_24_2900mm',
+  component:WPDP_Ripado_160_24_2900mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_200_16_2900mm',
+  name:'WPDP_Ripado_200_16_2900mm',
+  component:WPDP_Ripado_200_16_2900mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_200_21_2900mm',
+  name:'WPDP_Ripado_200_21_2900mm',
+  component:WPDP_Ripado_200_21_2900mm,
+  props:true,
+},
+{
+  path:'/product/WPDP_Ripado_200_24_2900mm',
+  name:'WPDP_Ripado_200_24_2900mm',
+  component:WPDP_Ripado_200_24_2900mm,
+  props:true,
+},
     ],
   },
   {

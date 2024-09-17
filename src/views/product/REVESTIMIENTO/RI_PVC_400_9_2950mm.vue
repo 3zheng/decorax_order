@@ -14,9 +14,10 @@ export default {
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'BV403', image: 'images/TBD1.jpg'  },                
+                { name: 'BV404', image: 'images/REVESTIMIENTO/BV404.jpg' },
+                { name: 'BV494', image: 'images/REVESTIMIENTO/BV494-H.jpg' },
+                { name: 'BV496', image: 'images/REVESTIMIENTO/BV496.jpg' },
                 // 更多商品数据
             ]
         };

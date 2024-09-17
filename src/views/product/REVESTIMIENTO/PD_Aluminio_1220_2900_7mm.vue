@@ -14,9 +14,14 @@ export default {
     data() {
         return {
             products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                { name: '4-AC', image: 'images/FERRETERIA/4-AC.png' },
-                { name: '4-SN', image: 'images/FERRETERIA/4-SN.png' },
+                { name: 'NA-02', image: 'images/REVESTIMIENTO/NA-02.jpg' }, 
+                { name: 'NA-04', image: 'images/REVESTIMIENTO/NA-04.jpg' },              
+                { name: 'NA-05', image: 'images/REVESTIMIENTO/NA-05.jpg' },
+                { name: 'NA-06', image: 'images/REVESTIMIENTO/NA-06.jpg' },
+                { name: 'NA-07', image: 'images/REVESTIMIENTO/NA-07.jpg' },
+                { name: 'NA-08', image: 'images/REVESTIMIENTO/NA-08.jpg' }, 
+                { name: 'NA-09', image: 'images/REVESTIMIENTO/NA-09.jpg' },
+                
                 // 更多商品数据
             ]
         };

@@ -14,10 +14,7 @@ export default {
     data() {
         return {
             products: [
-                { name: 'TORNILLO A', image: 'images/FERRETERIA/4-AB.png' },
-                { name: 'TORNILLO N', image: 'images/FERRETERIA/4-AC.png' },
-                { name: 'TORNILLO T2', image: 'images/TBD1.jpg' },
-                { name: 'TORNILLO T2-1', image: 'images/TBD1.jpg' },
+                { name: 'RPE-08', image: 'images/TBD1.jpg' },
                 // 更多商品数据
             ]
         };
