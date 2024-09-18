@@ -363,7 +363,7 @@
                             <el-menu-item index="9-7" class="custom-spacing">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
-                                    <router-link :to="{ name: 'ZA_ Adhesiva' }" class="custom-link" active-class="active-link">
+                                    <router-link :to="{ name: 'ZA_Adhesiva' }" class="custom-link" active-class="active-link">
                                         踢脚线ZOCALO<br>AUTO ADHESIVA
                                     </router-link>
                                 </span>
@@ -563,7 +563,6 @@ export default {
             alert('onMyOrders')
             this.$router.push({ name: 'orders' })
         },
-
         onCart(){
             alert('onCart')
             this.$router.push({ name: 'cart' })
