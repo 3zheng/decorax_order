@@ -14,12 +14,10 @@ export default {
     data() {
         return {
             products: [
-                { name: 'BV2524', image: 'images/CIELO-FALSO-PVC/BV2524.jpg' },                
-                { name: 'BV2525', image: 'images/CIELO-FALSO-PVC/BV2525.jpg' },
-                { name: 'BV2526', image: 'images/CIELO-FALSO-PVC/BV2526.jpg' },
-                { name: 'BV2527', image: 'images/TBD1.jpg' },
-                { name: 'BV2528', image: 'images/TBD1.jpg' },
-                { name: 'BV2529', image: 'images/TBD1.jpg' },
+                { name: 'WP-24', image: 'images/REVESTIMIENTO/WP-24-Cherry-A.jpg' },                
+                { name: 'WP-25', image: 'images/REVESTIMIENTO/WP-25-A.jpg' },
+                { name: 'WP-26', image: 'images/REVESTIMIENTO/WP-26-A.jpg' },                
+                
                 // 更多商品数据
             ]
         };

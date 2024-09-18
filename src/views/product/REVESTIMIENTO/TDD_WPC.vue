@@ -14,12 +14,16 @@ export default {
     data() {
         return {
             products: [
-                { name: 'BV2524', image: 'images/CIELO-FALSO-PVC/BV2524.jpg' },                
-                { name: 'BV2525', image: 'images/CIELO-FALSO-PVC/BV2525.jpg' },
-                { name: 'BV2526', image: 'images/CIELO-FALSO-PVC/BV2526.jpg' },
-                { name: 'BV2527', image: 'images/TBD1.jpg' },
-                { name: 'BV2528', image: 'images/TBD1.jpg' },
-                { name: 'BV2529', image: 'images/TBD1.jpg' },
+                { name: 'TC-01', image: 'images/REVESTIMIENTO/TC-01-TD-01.png' },                
+                { name: 'TC-02', image: 'images/REVESTIMIENTO/TC-02-TD-02.png' },
+                { name: 'TC-07', image: 'images/REVESTIMIENTO/TC-07-TD-07.png' },
+                { name: 'TC-09', image: 'images/REVESTIMIENTO/TC-09-TD-09.png' },
+                { name: 'TD-01', image: 'images/REVESTIMIENTO/TC-01-TD-01.png' },
+                { name: 'TD-02', image: 'images/REVESTIMIENTO/TC-02-TD-02.png' },
+                { name: 'TD-07', image: 'images/REVESTIMIENTO/TC-07-TD-07.png' },
+                { name: 'TD-09', image: 'images/REVESTIMIENTO/TC-09-TD-09.png' },
+                { name: 'WPF-01', image: 'images/REVESTIMIENTO/WPF-01.jpg' },
+                { name: 'WPF-03', image: 'images/REVESTIMIENTO/WPF-03.jpg' },
                 // 更多商品数据
             ]
         };
