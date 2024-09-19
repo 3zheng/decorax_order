@@ -24,7 +24,8 @@
                     </el-table-column>
                     <el-table-column label="操作" width="150">
                         <template slot-scope="scope">
-                            <el-button type="primary" icon="el-icon-edit" circle @click="onModifyOrder(scope.row)" ></el-button>
+                            <el-button type="primary" icon="el-icon-edit" circle
+                                @click="onModifyOrder(scope.row)"></el-button>
                             <el-button type="danger" icon="el-icon-delete" circle></el-button>
                         </template>
                     </el-table-column>
@@ -39,8 +40,7 @@
                             </el-pagination>
                         </el-col>
                         <el-col :span="10" style="text-align: right; margin-top: 0px">
-                            <el-button type="primary" icon="el-icon-back" @click="onPageUp">Página Arriba</el-button>
-                            <el-button type="primary" icon="el-icon-right" @click="onPageDown">Página Abajo</el-button>
+                            <el-button type="primary" icon="el-icon-s-claim" @click="onSubmitOrders">提交订单</el-button>
                         </el-col>
                         <el-col :span="2"> </el-col>
                     </el-row>
@@ -135,21 +135,97 @@ export default {
             console.log(str);
             this.showData = this.searchData.slice(start, end);
         },
-        onPageUp() {
-            if (this.currentPage > 1) {
-                this.handleCurrentChange(this.currentPage - 1);
-            }
+        onSubmitOrders() {
+            //this.postByFormData()
+            this.axios({
+                method: "post",
+                //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口
+                url: "/api/order",
+                //params:{} //params是作为URL里的查询参数传递
+                data: {
+                    operation: 'insert',
+                    orders: this.totalData,  // 对象数组
+                },
+                headers: {
+                    'Content-Type': 'application/json'  // 明确指定 JSON 格式
+                }
+            })
+                .then((repos) => {
+                    //console.log(repos.data);
+                    this.totalData = this.$removeExtraSpaces(repos.data);   //去两个以上的重复空格
+                    this.searchData = this.$removeExtraSpaces(repos.data);
+                    this.searchTotal = this.searchData.length;
+                    this.changeShowPage()
+                    this.progress = 100;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
-        onPageDown() {
-            if (this.currentPage * this.pageSize < this.searchTotal) {
-                this.handleCurrentChange(this.currentPage + 1)
-            }
+        postByJson() {
+            this.axios({
+                method: "post",
+                url: "/api/order",  // 后端的 API 地址
+                data: {
+                    operation: 'insert',
+                    orders: this.totalData,  // 对象数组
+                },
+                headers: {
+                    'Content-Type': 'application/json'  // 明确指定 JSON 格式
+                }
+            })
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
         },
-        onModifyOrder(row){
+        postByFormData() {
+            let formData = new FormData();
+            formData.append('operation', 'insert');
+            let data = [
+                { id: 10001, name: 'hello', quantity: 209 },
+                { id: 10101, name: 'hello', quantity: 1314 },
+                { id: 10033, name: 'hello', quantity: 234267 },
+                { id: 14004, name: 'hello', quantity: 8423 },
+                { id: 10555, name: 'hello', quantity: 18811 },
+            ]
+            data.forEach((item, index) => {
+                formData.append(`orders[${index}][id]`, item.id);
+                formData.append(`orders[${index}][name]`, item.name);
+                formData.append(`orders[${index}][quantity]`, item.quantity);
+            });
+            //二进制文件
+            let fileInput = document.querySelector('input[type="file"]');
+            if (fileInput.files.length > 0) {
+                formData.append('avatar', fileInput.files[0]);  // 假设是图片
+            }
+            this.axios({
+                method: "post",
+                url: "/api/order",  // 后端的 API 地址
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+
+        onModifyOrder(row) {
             alert(`${row.Username},${row.ProductID},${row.SubCatecory},${row.Address},${row.BuyNum},`);
             console.log(row)
             this.dialogVisible = true;
-        }
+        },
+        handleClose() {
+
+        },
 
     },
 };

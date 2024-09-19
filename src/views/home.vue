@@ -157,7 +157,7 @@
                                     </router-link>
                                 </span>
                             </el-menu-item>
-                            <el-menu-item index="3-2">
+                            <el-menu-item index="3-3">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">
                                     <router-link :to="{ name: 'A_Autoadhesiva' }" class="custom-link" active-class="active-link">

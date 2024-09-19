@@ -72,6 +72,7 @@ export default {
                 { name: 'KN-X0182-1', image: 'images/TBD1.jpg' },
                 { name: 'KN-X0195-3', image: 'images/TBD1.jpg' },
                 // 更多商品数据
+                
             ]
         };
     },
