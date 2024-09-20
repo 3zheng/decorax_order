@@ -11,6 +11,8 @@ export default new Vuex.Store({
             cart: new Map(),
             username: "user1",
             address: "我是收货地址",
+            userid: 1,
+            favorite : [],
             productDict: new Map([  //产品的信息表
                   //BISAGRA 4''
                   ['4-AB', "BISAGRA 4''"],
@@ -840,6 +842,9 @@ export default new Vuex.Store({
             getProductDict(state) {
                   return state.productDict;
             },
+            getUserID(state){
+                  return state.userid;
+            },
       },
       //同步方法
       mutations: {
@@ -855,6 +860,9 @@ export default new Vuex.Store({
             updateProductDict(state, productDict) {
                   state.productDict = productDict;
             },
+            updateUserID(state, userid){
+                  state.userid = userid;
+            },
       },
       //异步方法
       actions: {
@@ -869,6 +877,9 @@ export default new Vuex.Store({
             },
             asyncProductDict(context, productDict) {
                   context.commit('updateProductDict', productDict);
+            },
+            asyncUserID(context, userid) {
+                  context.commit('updateUserID', userid);
             },
       },
       modules: {

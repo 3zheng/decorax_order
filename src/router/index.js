@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import home from '@/views/home.vue'
 import orders from '@/views/MyOrders.vue'
 import cart from '@/views/Cart.vue'
+import userinfo from '@/views/UserInfo.vue'
+import MyFavorite from '@/views/product/MyFavorite.vue'
 //FERRETERIA
 import Bisagra4 from '@/views/product/FERRETERIA/Bisagra4.vue'
 import Sujetador from '@/views/product/FERRETERIA/Sujetador.vue'
@@ -85,14 +87,19 @@ const routes = [
     component: cart,
   },
   {
+    path: '/userinfo',
+    name: 'userinfo',
+    component: userinfo,
+  },
+  {
     path: '/',
     //name: 'home', //有默认子路由就不需要name
     component: home,
     children: [
       {
         path: '',  //路径为空的话就会默认渲染这个路由
-        name: 'defaultTable',
-        component: Bisagra4,
+        name: 'Default',
+        component: MyFavorite,
         props: true,
       },
       //FERRETERIA

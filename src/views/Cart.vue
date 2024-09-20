@@ -15,11 +15,11 @@
                         <template slot="header">序号</template>
                         <template slot-scope="scope">{{ (currentPage - 1) * pageSize + scope.$index + 1 }}</template>
                     </el-table-column>
-                    <el-table-column prop="Username" label="用户名" width="160"></el-table-column>
+                    <el-table-column prop="UserName" label="用户名" width="160"></el-table-column>
                     <el-table-column prop="ProductID" label="产品ID" width="150"> </el-table-column>
-                    <el-table-column prop="SubCatecory" label="子类" width="300"></el-table-column>
+                    <el-table-column prop="SubCategory" label="子类" width="300"></el-table-column>
                     <el-table-column prop="Address" label="收货地址" width="250"></el-table-column>
-                    <el-table-column prop="BuyNum" width="110">
+                    <el-table-column prop="ProductNum" width="110">
                         <template slot="header">订购数量</template>
                     </el-table-column>
                     <el-table-column label="操作" width="150">
@@ -33,16 +33,15 @@
                 <!--分页-->
                 <el-form :inline="true">
                     <el-row style="margin-top: 10px">
-                        <el-col :span="8" style="text-align: left; margin-top: 0px">
+                        <el-col :span="18" style="text-align: left; margin-top: 0px">
                             <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                                 :current-page="currentPage" :page-sizes="[5, 10, 20, 50]" :page-size="5"
                                 layout="total, sizes, prev, pager, next, jumper" :total="searchTotal">
                             </el-pagination>
                         </el-col>
-                        <el-col :span="10" style="text-align: right; margin-top: 0px">
+                        <el-col :span="5" style="text-align: right; margin-top: 0px">
                             <el-button type="primary" icon="el-icon-s-claim" @click="onSubmitOrders">提交订单</el-button>
                         </el-col>
-                        <el-col :span="2"> </el-col>
                     </el-row>
                 </el-form>
                 <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
@@ -88,22 +87,28 @@ export default {
 
     methods: {
         getAllData() {
-            let cart = this.$store.getters.getCart;
-            let username = this.$store.getters.getUserName;
-            let dict = this.$store.getters.getProductDict;
-            let address = this.$store.getters.getAddress;
+            const cart = this.$store.getters.getCart;
+            const username = this.$store.getters.getUserName;
+            const dict = this.$store.getters.getProductDict;
+            const address = this.$store.getters.getAddress;
+            const userid = this.$store.getters.getUserID;
+            
+
             for (let [key, value] of cart) {
                 if (!dict.has(key)) {
                     //产品字典里不存在
                     alert(`产品${key}在字典表里找不到`);
                 }
-                let subCateory = dict.get(key);
+                const subCategory = dict.get(key);
+
                 const obj = {
-                    'Username': username,
-                    'ProductID': key,
-                    'SubCatecory': subCateory,
-                    'Address': address,
-                    'BuyNum': value,
+                    UserName: username,
+                    UserID: userid,
+                    ProductID: key,
+                    SubCategory: subCategory,
+                    Address: address,
+                    ProductNum: value,
+                    OrderDate: '',
                 };
                 this.totalData.push(obj);
             }
@@ -135,8 +140,28 @@ export default {
             console.log(str);
             this.showData = this.searchData.slice(start, end);
         },
+        setOrderDate(){
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = ('0' + (now.getMonth() + 1)).slice(-2); // 月份从0开始，所以需要加1
+            const day = ('0' + now.getDate()).slice(-2);    //slice(-2)表示截取字符串最后两位，实现的功能就是%02d格式，只有一位数字补0，两位数字正常输出
+            const hours = ('0' + now.getHours()).slice(-2);
+            const minutes = ('0' + now.getMinutes()).slice(-2);
+            const seconds = ('0' + now.getSeconds()).slice(-2);
+            const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            console.log(formattedTime); // 输出格式为 YYYY-MM-DD HH:MM:SS
+            for (let i = 0; i< this.totalData.length; i++){
+                this.totalData[i].OrderDate = formattedTime;
+            }
+        },
         onSubmitOrders() {
             //this.postByFormData()
+            this.$notify({
+                title: '成功',
+                message: `已提交商品订单`,
+                type: 'success',
+            });
+            this.setOrderDate() //totalData写入订单时间
             this.axios({
                 method: "post",
                 //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口
@@ -144,11 +169,11 @@ export default {
                 //params:{} //params是作为URL里的查询参数传递
                 data: {
                     operation: 'insert',
-                    orders: this.totalData,  // 对象数组
+                    orders: this.totalData,  
                 },
                 headers: {
                     'Content-Type': 'application/json'  // 明确指定 JSON 格式
-                }
+                },
             })
                 .then((repos) => {
                     //console.log(repos.data);
