@@ -6,7 +6,7 @@
                     <router-link to="/" class="home-link">返回首页</router-link>
                 </div>
                 <div>
-                    <el-button type="primary" icon="el-icon-edit">修改默认收货地址</el-button>
+                    <el-button type="primary" icon="el-icon-edit">修改个人资料</el-button>
                 </div>
             </el-header>
             <el-main>
@@ -92,15 +92,13 @@ export default {
             const dict = this.$store.getters.getProductDict;
             const address = this.$store.getters.getAddress;
             const userid = this.$store.getters.getUserID;
-            
-
+        
             for (let [key, value] of cart) {
                 if (!dict.has(key)) {
                     //产品字典里不存在
-                    alert(`产品${key}在字典表里找不到`);
+                    alert(`产品${key}在字典表里找不到，联系开发人员更新字典表`);
                 }
                 const subCategory = dict.get(key);
-
                 const obj = {
                     UserName: username,
                     UserID: userid,
@@ -156,11 +154,6 @@ export default {
         },
         onSubmitOrders() {
             //this.postByFormData()
-            this.$notify({
-                title: '成功',
-                message: `已提交商品订单`,
-                type: 'success',
-            });
             this.setOrderDate() //totalData写入订单时间
             this.axios({
                 method: "post",
@@ -177,14 +170,23 @@ export default {
             })
                 .then((repos) => {
                     //console.log(repos.data);
-                    this.totalData = this.$removeExtraSpaces(repos.data);   //去两个以上的重复空格
-                    this.searchData = this.$removeExtraSpaces(repos.data);
-                    this.searchTotal = this.searchData.length;
-                    this.changeShowPage()
-                    this.progress = 100;
+                    if (repos.data.Success == true){
+                        this.$notify({
+                            title: '成功',
+                            message: `已提交商品订单`,
+                            type: 'success',
+                        });
+                        this.totalData = [];
+                    }else{
+                        this.$notify({
+                            title: '失败',
+                            message: `服务器忙，请稍后再试`,
+                            type: 'error',
+                        });
+                    }
                 })
                 .catch((error) => {
-                    console.log(error);
+                    console.log("axios error: ", error);
                 });
         },
         postByJson() {

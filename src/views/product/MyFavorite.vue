@@ -15,11 +15,14 @@ export default {
     data() {
         return {
             myName : "MyFavorite",
-            products: [
-                { name: '4-AB', image: 'images/FERRETERIA/4-AB.png' },
-                // 更多商品数据
-            ]
+            products: [],
         };
+    },
+    created(){
+        for (let [key,value] of this.$store.getters.getFavorite){
+            const obj = {name: key, image: value};
+            this.products.push(obj)
+        }
     },
     methods: {
         viewProductDetail(product) {
