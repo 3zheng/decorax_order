@@ -2,7 +2,7 @@
     <div>
         <el-switch v-model="isShow" active-text="只读" inactive-text="可写"></el-switch>
         <el-form :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100px" class="user-info">
-            <el-form-item prop="name" label="备注名" >
+            <el-form-item prop="username" label="备注名" >
                 <el-input v-model="dynamicValidateForm.email" :readonly="isShow"></el-input>
             </el-form-item>
             <el-form-item prop="address" label="默认地址" :rules="[
@@ -39,7 +39,7 @@ export default {
                 domains: [{
                     value: ''
                 }],
-                email: ''
+                username: ''
             },
             isShow: true,
 
