@@ -12,7 +12,7 @@ export default new Vuex.Store({
             username: "user1",
             address: "我是收货地址",
             userid: 1,
-            favorite : [],
+            favorite : new Map(),
             productDict: new Map([  //产品的信息表
                   //BISAGRA 4''
                   ['4-AB', "BISAGRA 4''"],
@@ -842,6 +842,9 @@ export default new Vuex.Store({
             getProductDict(state) {
                   return state.productDict;
             },
+            getFavorite(state){
+                  return state.favorite;
+            },
             getUserID(state){
                   return state.userid;
             },
@@ -860,25 +863,31 @@ export default new Vuex.Store({
             updateProductDict(state, productDict) {
                   state.productDict = productDict;
             },
+            updateFavorite(state, favorite){
+                  state.favorite = favorite
+            },
             updateUserID(state, userid){
                   state.userid = userid;
             },
       },
       //异步方法
       actions: {
-            asyncCart(context, cart) {
+            async asyncCart(context, cart) {
                   context.commit('updateCart', cart);
             },
-            asyncUserName(context, username) {
+            async asyncUserName(context, username) {
                   context.commit('updateUserName', username);
             },
-            asyncAddress(context, address) {
+            async asyncAddress(context, address) {
                   context.commit('updateAddress', address);
             },
-            asyncProductDict(context, productDict) {
+            async asyncProductDict(context, productDict) {
                   context.commit('updateProductDict', productDict);
             },
-            asyncUserID(context, userid) {
+            async asyncFavorite(context, favorite){
+                  context.commit('updateProductDict', favorite);
+            },
+            async asyncUserID(context, userid) {
                   context.commit('updateUserID', userid);
             },
       },
