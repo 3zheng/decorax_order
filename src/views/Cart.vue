@@ -6,7 +6,7 @@
                     <router-link to="/" class="home-link">返回首页</router-link>
                 </div>
                 <div>
-                    <el-button type="primary" icon="el-icon-edit">修改个人资料</el-button>
+                    <el-button type="primary" icon="el-icon-edit" @click="onUserInfo">修改个人资料</el-button>
                 </div>
             </el-header>
             <el-main>
@@ -86,11 +86,15 @@ export default {
     },
 
     methods: {
+        onUserInfo() {
+            alert('userinfo')
+            this.$router.push({ name: 'userinfo' })
+        },
         getAllData() {
             const cart = this.$store.getters.getCart;
             const username = this.$store.getters.getUserName;
             const dict = this.$store.getters.getProductDict;
-            const address = this.$store.getters.getAddress;
+            const address = this.$store.getters.getAddress[0];  //getAddress[0]是默认地址
             const userid = this.$store.getters.getUserID;
         
             for (let [key, value] of cart) {
@@ -131,13 +135,7 @@ export default {
             this.currentPage = val;
             this.changeShowPage()
         },
-        changeShowPage() {
-            var start = (this.currentPage - 1) * this.pageSize;
-            var end = (this.currentPage - 1) * this.pageSize + this.pageSize;
-            var str = "start=" + start + " end=" + end;
-            console.log(str);
-            this.showData = this.searchData.slice(start, end);
-        },
+        
         setOrderDate(){
             const now = new Date();
             const year = now.getFullYear();
@@ -169,14 +167,18 @@ export default {
                 },
             })
                 .then((repos) => {
-                    //console.log(repos.data);
-                    if (repos.data.Success == true){
+                    alert("收到回复")
+                    console.log(repos.data);
+                    if (repos.data.Success == "true"){
                         this.$notify({
                             title: '成功',
                             message: `已提交商品订单`,
                             type: 'success',
                         });
                         this.totalData = [];
+                        this.searchData = [];
+                        this.$store.commit('updateCart', new Map()) //清空购物车
+                        this.changeShowPage()
                     }else{
                         this.$notify({
                             title: '失败',
@@ -268,17 +270,5 @@ export default {
     min-height: 100vh;
 }
 
-.home-link {
-    color: blue;
-    /* 修改链接颜色 */
-    line-height: 1;
-    /* 根据需要调整行高 */
-}
 
-.home-link:hover {
-    color: blueviolet;
-    /* 修改链接颜色 */
-    line-height: 1;
-    /* 根据需要调整行高 */
-}
 </style>

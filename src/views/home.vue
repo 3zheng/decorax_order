@@ -6,9 +6,9 @@
                     <h1 style="text-align: left;margin-bottom: 10px;">下单平台</h1>
                 </div>
                 <div class="right-elements" style="margin-right: 20px;">
-                    <el-button type="success" icon="el-icon-s-order"
-                        @click="onMyOrders">{{ $store.getters.getUserName }}的订单</el-button>
                     <el-button type="warning" icon="el-icon-shopping-cart-2" @click="onCart">去购物车结算</el-button>
+                    <el-button type="success" icon="el-icon-s-order" @click="onMyOrders">{{ $store.getters.getUserName }}的订单</el-button>
+                    <el-button type="primary" icon="el-icon-edit" @click="onUserInfo">修改个人资料</el-button>
                     <!--el-tooltip effect="dark" content="我的购物车" placement="bottom">
                         <router-link to="/carts">
                             <i class="el-icon-shopping-cart-2" style="color: #F2F8FE; font-size: 24px;"></i>
@@ -628,9 +628,14 @@ export default {
             alert('onCart')
             this.$router.push({ name: 'cart' })
         },
+        onUserInfo() {
+            alert('userinfo')
+            this.$router.push({ name: 'userinfo' })
+        },
+        
     },
     computed: {
-        activeIndex() {
+        activeIndex() { //已弃用
             console.log(`当前路径是${this.$route.path}`)
             // 如果当前路径是 /home/t1 或 /home/t2，则返回对应的子菜单的 index
             return this.$route.name;

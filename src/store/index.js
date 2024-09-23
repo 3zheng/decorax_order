@@ -10,7 +10,7 @@ export default new Vuex.Store({
       state: {
             cart: new Map(),
             username: "user1",
-            address: "我是收货地址",
+            address: ["我是收货地址","地址2","yige letter dizhi"],
             userid: 1,
             favorite : new Map(),
             productDict: new Map([  //产品的信息表

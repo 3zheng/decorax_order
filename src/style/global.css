@@ -117,3 +117,17 @@ body>.el-container {
     margin-right: 40px;
     font-size:20px!important;
 }
+
+.home-link {
+    color: blue;
+    /* 修改链接颜色 */
+    line-height: 1;
+    /* 根据需要调整行高 */
+}
+
+.home-link:hover {
+    color: blueviolet;
+    /* 修改链接颜色 */
+    line-height: 1;
+    /* 根据需要调整行高 */
+}
