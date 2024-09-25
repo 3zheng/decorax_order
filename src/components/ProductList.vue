@@ -81,11 +81,12 @@ export default {
         },
         onAddToFavorite(product, index){
             //加入收藏
+            alert("onAddToFavorite");
             let favorite = this.$store.getters.getFavorite;
             favorite.set(product.name, product.image); //修改或者新增键值对
             this.$store.commit('updateFavorite', favorite); //更新vuex store里的全局变量
             const message = `商品${product.name}已添加到我的收藏`;
-            SendFavoriteRequire(favorite, message);
+            this.SendFavoriteRequire(favorite, message);
         },
         onRemoveFromFavorite(product, index){
             //移出收藏
@@ -94,17 +95,19 @@ export default {
             this.$store.commit('updateFavorite', favorite); //更新vuex store里的全局变量
             this.products.splice(index, 1)  //删除数组下标为index的products元素
             const message = `商品${product.name}已从我的收藏移出`;
-            SendFavoriteRequire(favorite, message);
+            this.SendFavoriteRequire(favorite, message);
         },
         SendFavoriteRequire(favorite, message){
+            alert("发送favorite")
             this.axios({
                 method: "post",
                 //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口
                 url: "/api/favorite",
                 //params:{} //params是作为URL里的查询参数传递
                 data: {
-                    userid: this.$store.getters.getUserID,
-                    orders: favorite,  
+                    operation: "favorite",
+                    UserID: this.$store.getters.getUserID,
+                    Favorite: Object.fromEntries(favorite),  // 将 Map 转换为对象 
                 },
                 headers: {
                     'Content-Type': 'application/json'  // 明确指定 JSON 格式
@@ -112,13 +115,12 @@ export default {
             })
                 .then((repos) => {
                     //console.log(repos.data);
-                    if (repos.data.Success == true){
+                    if (repos.data.Success == 'true'){
                         this.$notify({
                             title: '成功',
                             message: message,
                             type: 'success',
                         });
-                        this.totalData = [];
                     }else{
                         this.$notify({
                             title: '失败',

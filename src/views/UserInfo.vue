@@ -101,8 +101,8 @@ export default {
           this.$store.commit('updateUserName', this.dynamicValidateForm.username)
           let formData = new FormData();
           formData.append('userid', this.$store.getters.getUserID);
-          addresses.forEach((item, index) => {
-            formData.append(`address[${index}]`, item)
+          addresses.forEach((item) => {
+            formData.append(`address[]`, item)
           });
           formData.append('username', this.dynamicValidateForm.username)
           this.axios({

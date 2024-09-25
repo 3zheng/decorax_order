@@ -7,7 +7,8 @@
                 </div>
                 <div class="right-elements" style="margin-right: 20px;">
                     <el-button type="warning" icon="el-icon-shopping-cart-2" @click="onCart">去购物车结算</el-button>
-                    <el-button type="success" icon="el-icon-s-order" @click="onMyOrders">{{ $store.getters.getUserName }}的订单</el-button>
+                    <el-button type="success" icon="el-icon-s-order" @click="onMyOrders">{{ $store.getters.getUserName
+                        }}的订单</el-button>
                     <el-button type="primary" icon="el-icon-edit" @click="onUserInfo">修改个人资料</el-button>
                     <!--el-tooltip effect="dark" content="我的购物车" placement="bottom">
                         <router-link to="/carts">
@@ -23,8 +24,9 @@
                         <el-menu-item index="100">
                             <i class="el-icon-menu"></i>
                             <span slot="title">
-                            <!--使用exact属性，用于精确匹配路由路径，只有当路径完全匹配时，active-class才会生效，否则父路由/会一直处于激活状态-->
-                                <router-link :to="{name: 'Default'}" class="custom-link" active-class="active-link" exact>
+                                <!--使用exact属性，用于精确匹配路由路径，只有当路径完全匹配时，active-class才会生效，否则父路由/会一直处于激活状态-->
+                                <router-link :to="{ name: 'Default' }" class="custom-link" active-class="active-link"
+                                    exact>
                                     我的收藏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </router-link>
                             </span>
@@ -619,7 +621,58 @@
 // @ is an alias to /src
 export default {
     name: "home",
+    created(){
+        this.getData();
+    },
+    /*
+    beforeRouteEnter: (to, from, next) => {
+        //alert("进入Debt路由");
+        next((vm) => {
+            vm.getData();
+        });
+    },
+    */
     methods: {
+        getData() {
+            let formData = new FormData();
+            formData.append('UserName', 'admin');
+            formData.append('Password', 'hello+world');
+            this.axios({
+                method: "post",
+                //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口
+                //url: "http://35.203.42.244:31111/api/debt_daily", //通过ngnix反向代理
+                //url: "http://104.225.234.236:31111/api/debt_daily", //通过ngnix反向代理
+                url: "/api/login",
+                data: formData,
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+            })
+                .then((repos) => {
+                    //console.log(repos.data);
+                    if (repos.data.Success == "true") {
+                        alert("login成功")
+                        console.log(`Address = ${repos.data.AnyBody.Address}, UserName = ${repos.data.AnyBody.UserName}, 
+                        UserID = ${repos.data.AnyBody.UserID}, Favorite = ${repos.data.AnyBody.Favorite}`)
+                        this.$store.commit('updateAddress', repos.data.AnyBody.Address); //更新vuex store里的全局变量
+                        this.$store.commit('updateUserName', repos.data.AnyBody.UserName);
+                        this.$store.commit('updateUserID', repos.data.AnyBody.UserID);
+                        const favorite = new Map(Object.entries(repos.data.AnyBody.Favorite));
+                        this.$store.commit('updateFavorite', favorite);
+                        this.$forceUpdate() //重新渲染组件，开销小
+                        //window.location.reload() //重新刷新整个浏览器窗口，开销大
+                    } else {
+                        this.$notify({
+                            title: '失败',
+                            message: `login失败`,
+                            type: 'error',
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
         onMyOrders() {
             alert('onMyOrders')
             this.$router.push({ name: 'orders' })
@@ -632,8 +685,8 @@ export default {
             alert('userinfo')
             this.$router.push({ name: 'userinfo' })
         },
-        
     },
+
     computed: {
         activeIndex() { //已弃用
             console.log(`当前路径是${this.$route.path}`)
