@@ -87,7 +87,7 @@ export default {
 
     methods: {
         onUserInfo() {
-            alert('userinfo')
+            //alert('userinfo')
             this.$router.push({ name: 'userinfo' })
         },
         getAllData() {
@@ -167,7 +167,7 @@ export default {
                 },
             })
                 .then((repos) => {
-                    alert("收到回复")
+                    //alert("收到回复")
                     console.log(repos.data);
                     if (repos.data.Success == "true"){
                         this.$notify({
@@ -248,7 +248,7 @@ export default {
         },
 
         onModifyOrder(row) {
-            alert(`${row.Username},${row.ProductID},${row.SubCatecory},${row.Address},${row.BuyNum},`);
+            //alert(`${row.Username},${row.ProductID},${row.SubCatecory},${row.Address},${row.BuyNum},`);
             console.log(row)
             this.dialogVisible = true;
         },

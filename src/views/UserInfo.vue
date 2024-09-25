@@ -91,7 +91,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("commit")
+          //alert("commit")
           let addresses = [];
           addresses.push(this.dynamicValidateForm.defaultAddress)
           this.dynamicValidateForm.otherAddresses.forEach(item =>{
@@ -113,8 +113,8 @@ export default {
               'Content-Type': 'multipart/form-data'
             }
           })
-            .then(response => {
-              if (repos.data.Success == true) {
+            .then(repos => {
+              if (repos.data.Success == "true") {
                 this.$notify({
                   title: '成功',
                   message: `已保存用户资料`,

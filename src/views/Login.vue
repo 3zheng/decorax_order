@@ -72,7 +72,7 @@ export default {
         submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            //alert('submit!');
             this.axios({
                 method: "post",
                 //url: "http://localhost:24686/api/login",   //后端服务器的实际端口
@@ -85,11 +85,11 @@ export default {
             })
                 .then((repos) => {
                     //console.log(repos.data);
-                    alert('收到回复')
+                    //alert('收到回复')
                     let data = repos.data;
                     if (data.success == 'true'){
                       alert("成功")
-                      this.$router.push({ name: 'InventorySummary' })
+                      this.$router.push({ name: 'Default' })
                     }else if(data.success == 'false'){
                       alert("失败")
                     }

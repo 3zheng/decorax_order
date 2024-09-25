@@ -81,7 +81,7 @@ export default {
         },
         onAddToFavorite(product, index){
             //加入收藏
-            alert("onAddToFavorite");
+            //alert("onAddToFavorite");
             let favorite = this.$store.getters.getFavorite;
             favorite.set(product.name, product.image); //修改或者新增键值对
             this.$store.commit('updateFavorite', favorite); //更新vuex store里的全局变量
@@ -98,7 +98,7 @@ export default {
             this.SendFavoriteRequire(favorite, message);
         },
         SendFavoriteRequire(favorite, message){
-            alert("发送favorite")
+            //alert("发送favorite")
             this.axios({
                 method: "post",
                 //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口

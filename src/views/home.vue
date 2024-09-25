@@ -621,68 +621,17 @@
 // @ is an alias to /src
 export default {
     name: "home",
-    created(){
-        this.getData();
-    },
-    /*
-    beforeRouteEnter: (to, from, next) => {
-        //alert("进入Debt路由");
-        next((vm) => {
-            vm.getData();
-        });
-    },
-    */
-    methods: {
-        getData() {
-            let formData = new FormData();
-            formData.append('UserName', 'admin');
-            formData.append('Password', 'hello+world');
-            this.axios({
-                method: "post",
-                //url: "http://localhost:24686/api/debt_daily",   //后端服务器的实际端口
-                //url: "http://35.203.42.244:31111/api/debt_daily", //通过ngnix反向代理
-                //url: "http://104.225.234.236:31111/api/debt_daily", //通过ngnix反向代理
-                url: "/api/login",
-                data: formData,
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-            })
-                .then((repos) => {
-                    //console.log(repos.data);
-                    if (repos.data.Success == "true") {
-                        alert("login成功")
-                        console.log(`Address = ${repos.data.AnyBody.Address}, UserName = ${repos.data.AnyBody.UserName}, 
-                        UserID = ${repos.data.AnyBody.UserID}, Favorite = ${repos.data.AnyBody.Favorite}`)
-                        this.$store.commit('updateAddress', repos.data.AnyBody.Address); //更新vuex store里的全局变量
-                        this.$store.commit('updateUserName', repos.data.AnyBody.UserName);
-                        this.$store.commit('updateUserID', repos.data.AnyBody.UserID);
-                        const favorite = new Map(Object.entries(repos.data.AnyBody.Favorite));
-                        this.$store.commit('updateFavorite', favorite);
-                        this.$forceUpdate() //重新渲染组件，开销小
-                        //window.location.reload() //重新刷新整个浏览器窗口，开销大
-                    } else {
-                        this.$notify({
-                            title: '失败',
-                            message: `login失败`,
-                            type: 'error',
-                        });
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        },
+    methods:{
         onMyOrders() {
-            alert('onMyOrders')
+            //alert('onMyOrders')
             this.$router.push({ name: 'orders' })
         },
         onCart() {
-            alert('onCart')
+            //alert('onCart')
             this.$router.push({ name: 'cart' })
         },
         onUserInfo() {
-            alert('userinfo')
+            //alert('userinfo')
             this.$router.push({ name: 'userinfo' })
         },
     },

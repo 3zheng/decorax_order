@@ -6,8 +6,8 @@
                     <router-link to="/" class="home-link">返回首页</router-link>
                 </div>
                 <div>
-                    <el-button type="warning" icon="el-icon-shopping-cart-2" @click="onCart">去购物车结算</el-button>
-                    <el-button type="primary" icon="el-icon-edit" @click="onUserInfo">修改个人资料</el-button>
+                    <el-button type="warning" icon="el-icon-folder-remove" @click="onDisplayNoBought">不显示已收货订单</el-button>
+                    <el-button type="primary" icon="el-icon-folder-add" @click="onDisplayAll">显示所有订单</el-button>
                 </div>
             </el-header>
             <el-main>
@@ -31,7 +31,7 @@
                             <el-button v-if="scope.row.Status === 2" size="medium" type="success"
                                 icon="el-icon-circle-check" @click="onConfirmReceipt(scope.$index)">确认收货</el-button>
                             <el-button v-if="scope.row.Status === 0" size="medium" type="danger" icon="el-icon-delete"
-                                @click="onDeletRow(scope.$index)">取消订单</el-button>
+                                @click="onDeleteRow(scope.$index)">取消订单</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -122,12 +122,17 @@ export default {
                 .then((repos) => {
                     //console.log(repos.data);
                     if (repos.data.Success == "true") {
-                        alert("ConfirmReceipt成功")
-                        let index = this.totalData.findIndex(item => item.OrderID === orderID)
+                        //alert("ConfirmReceipt成功");
+                        this.$notify({
+                            title: '成功',
+                            message: `确认收货成功`,
+                            type: 'success',
+                        });
+                        let index = this.totalData.findIndex(item => item.OrderID === orderID);
                         if (index != -1){
                             this.totalData[index].Status = 9;
                         }
-                        index = this.searchData.findIndex(item => item.OrderID === orderID)
+                        index = this.searchData.findIndex(item => item.OrderID === orderID);
                         if (index != -1){
                             this.searchData[index].Status = 9;
                         }
@@ -145,7 +150,7 @@ export default {
                     console.log(error);
                 });
         },
-        onDeletRow(scopeIndex) {
+        onDeleteRow(scopeIndex) {
             const orderID = this.showData[scopeIndex].OrderID;
             this.axios({
                 method: "post",
@@ -165,7 +170,11 @@ export default {
                 .then((repos) => {
                     //console.log(repos.data);
                     if (repos.data.Success == "true") {
-                        alert("delete order成功")
+                        this.$notify({
+                            title: '成功',
+                            message: `取消订单成功`,
+                            type: 'success',
+                        });
                         let index = this.totalData.findIndex(item => item.OrderID === orderID)
                         if (index != -1){
                             this.totalData.splice(index, 1)
@@ -190,7 +199,7 @@ export default {
         },
         tableRowClassName({ row, rowIndex }) {  //弃用
             if (row.Status === 9) {
-                alert(`row Status = 9, index = ${rowIndex}`)
+                //alert(`row Status = 9, index = ${rowIndex}`)
                 return 'highlight-row';
             }
             return '';
@@ -217,13 +226,24 @@ export default {
                     return '未知状态';
             }
         },
-        onCart() {
-            alert('onCart');
-            this.$router.push({ name: 'cart' });
+        onDisplayNoBought() {
+            //不显示已收货
+            //alert('onDisplayNoBought');
+            this.searchData = [];
+            this.totalData.forEach(item => {
+                if (item.Status != 9){
+                    this.searchData.push(item);
+                }
+            });
+            this.searchLength = this.searchData.length;
+            this.changeShowPage();
         },
-        onUserInfo() {
-            alert('userinfo');
-            this.$router.push({ name: 'userinfo' });
+        onDisplayAll() {
+            //显示所有
+            //alert('onDisplayAll');
+            this.searchData = this.totalData;
+            this.searchLength = this.searchData.length;
+            this.changeShowPage();
         },
         startProgress() {
             const interval = setInterval(() => {
@@ -249,10 +269,10 @@ export default {
                 },
             })
                 .then((repos) => {
-                    alert("收到回复")
+                    //alert("收到回复")
                     //console.log(repos.data);
                     if (repos.data.Success == "true") {
-                        alert("成功")
+                        //alert("成功")
                         this.totalData = this.$removeExtraSpaces(repos.data.AnyBody);   //去两个以上的重复空格
                         this.searchData = this.totalData;
                         this.searchLength = this.searchData.length;
