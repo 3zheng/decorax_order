@@ -215,13 +215,13 @@ export default {
         formatStatus(row, column, cellValue) {
             switch (cellValue) {
                 case 0:
-                    return '未发货';
+                    return '🧾已下单';
                 case 1:
                     return '🔒已接单';
                 case 2:
-                    return '发货中';
+                    return '🚛发货中';
                 case 9:
-                    return '已收货';
+                    return '✔已收货';
                 default:
                     return '未知状态';
             }
